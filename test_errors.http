@@ -1,0 +1,112 @@
+
+
+# # 1. Test tạo user thiếu dữ liệu bắt buộc
+# POST http://localhost:3001/api/users
+# Content-Type: application/json
+
+# {
+#     "name": "Test User"
+#     // Thiếu email và password
+# }
+
+# ###
+
+# # 2. Test tạo user với email trùng lặp
+# POST http://localhost:3001/api/users
+# Content-Type: application/json
+
+# {
+#     "name": "User 1",
+#     "email": "test@example.com",
+#     "password": "123456",
+#     "role": "user"
+# }
+
+# ###
+
+# # 3. Tạo user thứ 2 với cùng email (để test duplicate)
+# POST http://localhost:3001/api/users
+# Content-Type: application/json
+
+# {
+#     "name": "User 2", 
+#     "email": "test@example.com",
+#     "password": "123456",
+#     "role": "user"
+# }
+
+# ###
+
+# # 4. Test lấy user không tồn tại
+# GET http://localhost:3001/api/users/507f1f77bcf86cd799439011
+
+# ###
+
+# # 5. Test update user không tồn tại
+# PUT http://localhost:3001/api/users/507f1f77bcf86cd799439011
+# Content-Type: application/json
+
+# {
+#     "name": "Updated User"
+# }
+
+# ###
+
+# # 6. Test delete user không tồn tại
+# DELETE http://localhost:3001/api/users/507f1f77bcf86cd799439011
+
+# ###
+
+# # ============= PROJECT TESTS =============
+
+# # 7. Test tạo project thiếu owner
+# POST http://localhost:3001/api/projects
+# Content-Type: application/json
+
+# {
+#     "name": "Project A",
+#     "description": "Test project"
+#     // Thiếu owner
+# }
+
+# ###
+
+# # 8. Test tạo project với owner không tồn tại
+# POST http://localhost:3001/api/projects
+# Content-Type: application/json
+
+# {
+#     "name": "Project B",
+#     "description": "Test project",
+#     "owner": "507f1f77bcf86cd799439011"
+# }
+
+# ###
+
+# # 9. Test lấy project không tồn tại
+# GET http://localhost:3001/api/projects/507f1f77bcf86cd799439011
+
+# ###
+
+# # 10. Test update project không tồn tại
+# PUT http://localhost:3001/api/projects/507f1f77bcf86cd799439011
+# Content-Type: application/json
+
+# {
+#     "name": "Updated Project"
+# }
+
+# ###
+
+# # 11. Test delete project không tồn tại
+# DELETE http://localhost:3001/api/projects/507f1f77bcf86cd799439011
+
+# ###
+
+# # 12. Test với invalid ObjectId format
+# GET http://localhost:3001/api/users/invalid-id
+
+# ###
+
+# # 13. Test với invalid ObjectId format cho project
+# GET http://localhost:3001/api/projects/invalid-id

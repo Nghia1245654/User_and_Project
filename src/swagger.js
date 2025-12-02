@@ -12,7 +12,10 @@ const options = {
       description: "API documentation for Project & User system",
     },
     servers: [
-      { url: process.env.API_URL }
+      { 
+        url: process.env.API_URL
+          
+      }
     ],
 
     components: {
@@ -21,7 +24,6 @@ const options = {
           type: "object",
           required: ["name", "email", "password"],
           properties: {
-            _id: { type: "string" },
             name: { type: "string", example: "Nguyen Van A" },
             email: { type: "string", example: "test@gmail.com" },
             password: { type: "string", example: "123456" },
