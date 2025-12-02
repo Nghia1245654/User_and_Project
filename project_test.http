@@ -1,0 +1,21 @@
+# //tạo dự án
+# POST http://localhost:3001/api/projects
+# Content-Type: application/json
+
+# {
+#     "name": "Dự án A",
+#     "description": "Mô tả dự án A",
+#     "startDate": "2025-01-01",
+#     "status": "pending",
+#     "owner": "692dd87d23301168dd3954b2"
+# }
+POST http://localhost:3001/api/users
+Content-Type: application/json
+
+{
+    "name": "Nguyễn Văn A",
+    "email": "nghia@example.com",
+    "password": "1234562",
+    "role": "user"
+}
+ 
