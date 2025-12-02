@@ -19,7 +19,7 @@ export const create = async (req, res) => {
     const newProject = await projectService.createProject(req.body);
     return successResponse(res, "Tạo dự án thành công", newProject, 201);
   } catch (err) {
-    console.error('Error creating project:', err); // Debug log
+    console.errorResponse('Error creating project:', err); // Debug log
     return errorResponse(res, `Lỗi tạo dự án: ${err.message}`, 500, "CREATE_PROJECT_FAILED");
   }
 };
@@ -37,7 +37,7 @@ export const getDetail = async (req, res) => {
   try {
     const project = await projectService.getProjectById(req.params.id);
     if (!project)
-      return error(res, "Không tìm thấy dự án", 404, "PROJECT_NOT_FOUND");
+      return errorResponse(res, "Không tìm thấy dự án", 404, "PROJECT_NOT_FOUND");
     return successResponse(res, "Lấy chi tiết thành công", project);
   } catch (err) {
     return errorResponse(res, "Lỗi hệ thống", 500, "GET_PROJECT_FAILED");
@@ -50,7 +50,7 @@ export const update = async (req, res) => {
       req.body
     );
     if (!updatedProject)
-      return error(res, "Không tìm thấy dự án", 404, "PROJECT_NOT_FOUND");
+      return errorResponse(res, "Không tìm thấy dự án", 404, "PROJECT_NOT_FOUND");
     return successResponse(res, "Cập nhật dự án thành công", updatedProject);
   } catch (err) {
     return errorResponse(res, "Lỗi hệ thống", 500, "UPDATE_PROJECT_FAILED");
