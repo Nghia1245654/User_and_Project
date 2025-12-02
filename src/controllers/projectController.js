@@ -60,7 +60,7 @@ export const deleteProject = async (req, res) => {
   try {
     const deletedProject = await projectService.deleteProject(req.params.id);
     if (!deletedProject)
-      return error(res, "Không tìm thấy dự án", 404, "PROJECT_NOT_FOUND");
+      return errorResponse(res, "Không tìm thấy dự án", 404, "PROJECT_NOT_FOUND");
     return successResponse(res, "Xóa dự án thành công", deletedProject);
   } catch (err) {
     return errorResponse(res, "Lỗi hệ thống", 500, "DELETE_PROJECT_FAILED");
